@@ -12,7 +12,7 @@ Este proyecto es una herramienta escrita en Python diseñada para ingerir flujos
 
 ## Diagrama de Flujo
 
-El siguiente diagrama detalla la arquitetura y procesado implementado en el código:
+El siguiente diagrama detalla la arquitectura y procesado implementado en el código:
 
 ![Diagrama de Flujo del Proceso](diagrama.png)
 
@@ -20,13 +20,12 @@ El código de colores utilizado en el diagrama sirve para representar:
 * **Azul:** Representa el punto de origen. Representa el _input_ al sistema.
 * **Naranja:** Engloban los procesos de extracción y reensamblado de las tablas de metadatos (SDT, PAT, PMT, EIT).
 * **Verde:** Aquellos puntos donde se controla la ejecución en función del flujo de contenido. Se toman decisiones sobre la detención de grabación, cambios de eventos, etc.
-* **Rombo Amarillo:** Puntos de bifurcación que depende de la decisión del usuario. Para integrarlo en la ejecución, es neecesario añadir _--extract-eit-after_ en la línea de ejecución.
+* **Rombo Amarillo:** Puntos de bifurcación que depende de la decisión del usuario. Para integrarlo en la ejecución, es necesario añadir `--extract-eit-after` en la línea de ejecución.
 * **Violeta:** Representa los _outputs_ del sistema. Incluye las propias grabaciones `.ts` y el archivo `.csv` que recoge todo el contenido grabado y sus características más relevantes. Opcionalmente, también genera los archivos `.xml` con la tabla EIT para cada programa.
 
   
 ## Uso
 
-El script se ejecuta mediante línea de comandos. Los parámetros principales son la IP/Puerto de origen y el tiempo de grabación en segundos. Opcionalmente, se puede realizar la posterior extracción de la tabla EIT para cada archivo generado.
+El script se ejecuta mediante línea de comandos. Los parámetros principales son la IP/Puerto de origen y el tiempo de grabación en segundos. Opcionalmente, se puede realizar la posterior extracción de la tabla EIT para cada archivo generado mediante el uso de `--extract-eit-after`
 
-```bash
-python grabacion_contenidos.py --record-ip X.X.X.X:YYYY --record-seconds 3600 --output-dir ./Grabaciones --extract-eit-after
+``` python grabacion_contenidos.py --record-ip X.X.X.X:YYYY --record-seconds 3600 --output-dir ./Grabaciones --extract-eit-after ```
