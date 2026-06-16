@@ -16,6 +16,14 @@ El siguiente diagrama detalla la arquitetura y procesado implementado en el cód
 
 ![Diagrama de Flujo del Proceso](diagrama.png)
 
+El código de colores utilizado en el diagrama sirve para representar:
+* **Azul:** Representa el punto de origen. Representa el ``input'' al sistema.
+* **Naranja:** Engloban los procesos de extracción y reensamblado de las tablas de metadatos (SDT, PAT, PMT, EIT).
+* **Verde:** Aquellos puntos donde se controla la ejecución en función del flujo de contenido. Se toman decisiones sobre la detención de grabación, cambios de eventos, etc.
+* **Rombo Amarillo:** Puntos de bifurcación que depende de la decisión del usuario. Para integrarlo en la ejecución, es neecesario añadir ``--extract-eit-after'' en la línea de ejecución.
+* **Violeta:** Representa los ``outputs'' del sistema. Incluye las propias grabaciones `.ts` y el archivo `.csv`que recoge todo el contenido grabado y sus características más relevantes. Opcionalmente, también genera los archivos `.xml`con la tabla EIT para cada programa.
+
+  
 ## Uso
 
 El script se ejecuta mediante línea de comandos. Los parámetros principales son la IP/Puerto de origen y el tiempo de grabación en segundos. Opcionalmente, se puede realizar la posterior extracción de la tabla EIT para cada archivo generado.
